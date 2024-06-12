@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To the Power of Math!</title>
+    <style>
+        body {
+            background-color: #2C2C54;
+            font-family: system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #DCD6F7;
+        }
+        .container {
+            background-color: #6D28A0;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #F8E7FC;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 20px;
+            display: block;
+            margin-top: 20px;
+            text-align: left;
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #A076DF;
+            border-radius: 12px;
+            font-size: 20px;
+            color: #2C2C54;
+            background-color: #F8E7FC;
+        }
+        button {
+            background-color: #A076DF;
+            border: none;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #8C4BC1;
+        }
+    </style>
+    <script>
+        function callAPI(base, exponent) {
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            const raw = JSON.stringify({ base: base, exponent: exponent });
+
+            const requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("https://wg0f6ek3l9.execute-api.ap-south-1.amazonaws.com/dev", requestOptions)
+                .then(response => response.text())
+                .then(result => alert(JSON.parse(result).body))
+                .catch(error => console.log('error', error));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>TO THE POWER OF MATH!</h1>
+        <form onsubmit="event.preventDefault(); callAPI(document.getElementById('base').value, document.getElementById('exponent').value);">
+            <label for="base">Base number:</label>
+            <input type="text" id="base" required>
+            <label for="exponent">...to the power of:</label>
+            <input type="text" id="exponent" required>
+            <button type="submit">CALCULATE</button>
+        </form>
+    </div>
+</body>
+</html>
