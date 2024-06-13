@@ -12,10 +12,11 @@ https://dev.d2vzk0vjl847d4.amplifyapp.com/
 
 **IAM**: Manages permissions, ensuring secure access to the DynamoDB table for storing results.
 
-
 **API Gateway**: Creates and manages the POST API that triggers the Lambda function.
 
 **DynamoDB**: Stores the results of the power calculations.
+
+![endtoendarchitecture](https://github.com/muskaanbahri/AWS-End-to-End-WebApp/assets/122555496/e0d24bd4-c5e9-486b-85fe-67b32bd5bbed)
 
 
 
