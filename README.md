@@ -1,7 +1,7 @@
 
 # AWS End to End Web Application
 This project demonstrates the integration of five AWS services—Amplify, Lambda, IAM, API Gateway, and DynamoDB—to create and deploy a web application that calculates the power of a given base and exponent. The result of the calculation is stored in a DynamoDB table.
-https://dev.d2vzk0vjl847d4.amplifyapp.com/
+(https://dev.d2u19f69y9k7gd.amplifyapp.com/)
 
 # AWS End to End Web Application
 ## Architecture
